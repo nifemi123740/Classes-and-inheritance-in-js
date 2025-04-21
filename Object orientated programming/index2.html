@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Inheritance</title>
+</head>
+<body>
+    <h1 style="text-align: center;">Inheritance</h1>
+    <p id="demo"></p>
+    <p id="demo1"></p>
+    <script>
+        //creating a class
+        class Student{
+            constructor(name, year){
+                this.name = name
+                this.year = year
+            }
+            age(){
+                //method calculates age
+                let date= new Date();
+                return date.getFullYear() - this.year;
+            }
+        }
+        class graduateStudent extends Student{
+            constructor(name, year, degree){
+                super(name,year);
+                this.degree = degree
+            }
+            getDetails(){
+                return this.name+ " is " + this.age() + " year old and has a degree in " +this.degree
+            }
+        }
+        student1= new graduateStudent(" Mary", 2013, "Computer Science")
+        document.getElementById("demo").innerHTML= student1.getDetails();
+        student2= new graduateStudent(" Juda", 2012, "Agricultural science")
+        document.getElementById("demo1").innerHTML= student2.getDetails();
+    </script>
+</body>
+</html>
